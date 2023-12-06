@@ -1,0 +1,104 @@
+[
+    {
+        "question": "Fill in the blank: _______ Yadlowski",
+        "optionA": "Dylan",
+        "optionB": "Derek",
+        "optionC": "Dustin",
+        "answer": "Derek"
+    },
+
+    {
+        "question": "Free lost point",
+        "optionA": "Darn",
+        "optionB": "Why would you do this",
+        "optionC": ":(",
+        "answer": ""
+
+    },
+
+    {
+        "question": "What is the most popular dog breed in the United States?",
+        "optionA": "Chiuwawa",
+        "optionB": "German Shepherd",
+        "optionC": "Labrador Retriever",
+        "answer": "Labrador Retriever"
+
+    },
+    
+    {
+        "question": "Which planet is known as the 'Red Planet?'",
+        "optionA": "Mars",
+        "optionB": "Venus",
+        "optionC": "Jupiter",
+        "answer": "Mars"
+
+    },
+    
+    {
+        "question": "What is the largest mammal on Earth?",
+        "optionA": "Elephant",
+        "optionB": "Blue Whale",
+        "optionC": "Giraffe",
+        "answer": "Blue Whale"
+
+    },
+    
+    {
+        "question": "In what year did the Titanic sink?",
+        "optionA": "1912",
+        "optionB": "1923",
+        "optionC": "1935",
+        "answer": "1912"
+
+    },
+
+    {
+        "question": "What is the main weapon used by the protagonist in 'The Legend of Zelda' series?",
+        "optionA": "Sword",
+        "optionB": "Bow and Arrow",
+        "optionC": "Magic Wand",
+        "answer": "Sword"
+
+    },
+
+    {
+        "question": "Which game is the best game ever?",
+        "optionA": "Fortnite",
+        "optionB": "Fortnite",
+        "optionC": "Fortnite",
+        "answer": "Fortnite"
+
+    },
+
+    {
+        "question": "In the game Pokémon, which type is strong against water-type Pokémon?",
+        "optionA": "Grass",
+        "optionB": "Electric",
+        "optionC": "Fire",
+        "answer": "Electric"
+
+    },
+    
+    {
+        "question": "Kratos from God of War(2018) has a son named what?",
+        "optionA": "Atreus",
+        "optionB": "Deimos",
+        "optionC": "Joe",
+        "answer": "Atreus"
+
+    },
+    
+    {
+        "question": "How do you put out an oil fire?",
+        "optionA": "Pour Water over it ",
+        "optionB": "More oil",
+        "optionC": "Smother it ",
+        "answer": "Smother it"
+
+    }
+    
+    
+    
+    
+
+]
