@@ -4,18 +4,22 @@ import questionList from './questions.json';
 import happyEmoji from './images/happyEmoji.jpg';
 import sadEmoji from './images/sadEmoji.jpg';
 import shuffleArray from './questionRandom';
+import useSound from 'use-sound';
 
 function Quiz() {
   const [showResult, setFinalResult] = useState(false);
   const [score, setScore] = useState(0);
   const [currentQuestion, setCurrentQuestion] = useState(0);
-  
+  const [playClicked] = useSound('./sounds/interface-124464.mp3');
+  const [playBooEndSound] = useSound('./sounds/boo-6377.mp3');
+  const [playCheerEndSound] = useSound('./sounds/success-1-6297.mp3');
+  const [playResetSound] = useSound('./sounds/reset.mp3');
   //score50 and textColor class are responsible for changing the end score text color if the end score is < or > then 50%
-  const score50 = questionList/2;  
+  const score50 = questionList.length/2;  
   const scoreTextColor = score >= score50 ? 'text-green-500' : 'text-red-500';
   
   const scoreBackgroundImage = score >= score50 ? 'https://images.rawpixel.com/image_png_1100/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTExL3JtNTg2YmF0Y2gyLWVtb2ppLTAxMC5wbmc.png' : 'https://atlas-content-cdn.pixelsquid.com/assets_v2/300/3006314032358496243/jpeg-600/G03.jpg?modifiedAt=1';
-
+  
   //const shuffledQuestions = shuffleArray([...questionList ]);
 
   //const selectedQuestions = shuffledQuestions.slice(0, 5);
@@ -23,11 +27,13 @@ function Quiz() {
     setScore(0);
     setCurrentQuestion(0);
     setFinalResult(false);
+    playResetSound();
   };
 
   const handleAnswerClick = (selectedAnswer) => {
     if (selectedAnswer === questionList[currentQuestion].answer) {
       setScore(score + 1);
+
     }
 
     // Move to the next question
@@ -36,11 +42,18 @@ function Quiz() {
     } else {
       // If there are no more questions, show the final result
       setFinalResult(true);
+      if (score >= score50) {
+        playCheerEndSound();
+      }else{
+        playBooEndSound();
+      }
+
     }
     console.log('scoreBackgroundImage:', scoreBackgroundImage);
   
     
-  
+    playClicked();
+
   };
 
 
@@ -53,10 +66,8 @@ function Quiz() {
         
           <img src={scoreBackgroundImage} alt="Emoji picture" className="mt-4" />
         
-          <button class ="transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-3 hover:scale-110 hover:bg-indigo-500 duration-300 ..." onClick={() => retryButton()}>Click here to retry</button>
-        
+          <button className ="transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-3 hover:scale-110 hover:bg-indigo-500 duration-300 ..." onClick={() => retryButton() }>Click here to retry</button>
         </div>
-
 
       ) : (
         <div className = " grid grid-cols-1 content-center ...">
@@ -64,15 +75,15 @@ function Quiz() {
           <p className = "text-2xl text-black">{questionList[currentQuestion].question}</p>
          
           <ul className="list-none pl-4 ">
-            <li className="  border-black text-center p-8 my-8 border-4 w-64transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-3 hover:scale-110 hover:bg-indigo-500 duration-300 ..." onClick={() => handleAnswerClick(questionList[currentQuestion].optionA)}>
+            <li className="  border-black text-center p-8 my-8 border-4 w-64transition ease-in-out delay-50 bg-blue-500 hover:-translate-y-3 hover:scale-110 hover:bg-indigo-500 duration-300 ..." onClick={() => handleAnswerClick(questionList[currentQuestion].optionA) }>
               {questionList[currentQuestion].optionA}
             </li>
 
-            <li className=" border-black text-center p-8 my-8 border-4 w-64transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-3 hover:scale-110 hover:bg-indigo-500 duration-300 ..." onClick={() => handleAnswerClick(questionList[currentQuestion].optionB)}>
+            <li className=" border-black text-center p-8 my-8 border-4 w-64transition ease-in-out delay-50 bg-blue-500 hover:-translate-y-3 hover:scale-110 hover:bg-indigo-500 duration-300 ..." onClick={() => handleAnswerClick(questionList[currentQuestion].optionB)}>
               {questionList[currentQuestion].optionB}
             </li>
 
-            <li className=" border-black text-center p-8 my-8 border-4 w-64transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-3 hover:scale-110 hover:bg-indigo-500 duration-300 ..." onClick={() => handleAnswerClick(questionList[currentQuestion].optionC)}>
+            <li className=" border-black text-center p-8 my-8 border-4 w-64transition ease-in-out delay-50 bg-blue-500 hover:-translate-y-3 hover:scale-110 hover:bg-indigo-500 duration-300 ..." onClick={() => handleAnswerClick(questionList[currentQuestion].optionC)}>
               {questionList[currentQuestion].optionC}
             </li>
           </ul>
